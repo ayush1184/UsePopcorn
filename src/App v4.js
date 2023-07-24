@@ -373,8 +373,11 @@ function MovieDetails({
                     );
                     setSelectedID(null);
                   }}
+                  disabled={toWatch.some(mov => mov.imdbID === selectedID)}
                 >
-                  Add to Watch List
+                  {!toWatch.some(mov => mov.imdbID === selectedID)
+                    ? `Add to Watch List`
+                    : `Added 👍`}
                 </button>
               </>
             )}
