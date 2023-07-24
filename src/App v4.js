@@ -371,6 +371,7 @@ function MovieDetails({
                         ? moviesArr
                         : [...moviesArr, movie]
                     );
+                    setSelectedID(null);
                   }}
                 >
                   Add to Watch List
