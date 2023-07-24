@@ -15,16 +15,6 @@ export default function App() {
   const [watched, setWatched] = useLocalStorageState([], `watched`);
   const { movies, error, isLoading } = useMovies(query);
 
-  // const [watched, setWatched] = useState([]);
-  // const [watched, setWatched] = useState(() => {
-  //   const storedWatch = JSON.parse(localStorage.getItem('watched'));
-  //   return storedWatch;
-  // });
-
-  // const [watched, setWatched] = useState(() =>
-  //   JSON.parse(localStorage.getItem(`watched`))
-  // );
-
   function handleAddWatched(movie) {
     setWatched(watched => {
       const result = watched.some(mov => mov.imdbID === movie.imdbID)
@@ -63,10 +53,6 @@ export default function App() {
           ) : (
             <MoviesList movies={movies} setSelectedID={setSelectedID} />
           )}
-          {/* /* Alternative to above line of code. */}
-          {/* {isLoading && <Loader />}
-          {!isLoading && !error && <MoviesList movies={movies} />}
-          {error && <ErrorMessage />} */}
         </Box>
 
         {selectedID ? (
@@ -194,10 +180,6 @@ function Box({ children }) {
     </div>
   );
 }
-
-// function ListBox({ children }) {
-//   return <Box>{children}</Box>;
-// }
 
 function MoviesList({ movies, setSelectedID }) {
   return (
@@ -404,7 +386,7 @@ function MovieDetails({
           <p>{director === `N/A` ? null : `Directed by ${director}`}</p>
         </section>
         <button className='btn-back' onClick={() => setSelectedID(null)}>
-          {/* ⬅ */}&larr;
+          &larr;
         </button>
       </div>
     </>
